@@ -35,4 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    if(window.location.toString().indexOf('cart.html') > 0) {
+        const modal = document.querySelector('.order__form'),
+              substrate = document.querySelector('.substrate'),
+              closeBtn = document.querySelector('.order__form-close div'),
+              openBtn = document.querySelector('.delivery__btn');
+
+        function hideModalWindowOrder() {
+            modal.classList.add('hide');
+            substrate.classList.add("hide");
+            modal.classList.remove('show');
+            substrate.classList.remove("show");
+        }
+
+        function showModalWindowOrder() {
+            modal.classList.remove('hide');
+            substrate.classList.remove("hide");
+            modal.classList.add('show');
+            substrate.classList.add("show");
+        }
+
+        closeBtn.addEventListener('click', () => {
+            hideModalWindowOrder();
+        });
+
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showModalWindowOrder();
+        })
+
+    }
 });
